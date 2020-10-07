@@ -6,7 +6,7 @@ comment: false
 
 Segmenting the thalamus using a 3D convolutional neural network that takes the MPRAGE image and a set of features derived from diffusion tensor images (DTI). 
 <p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/github/thalamus_workflow.png?raw=true">
+  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/thalamus_workflow.png?raw=true">
 </p>
 
 
@@ -18,7 +18,7 @@ We learn the location of the thalamus from 234 images that have been processed b
 4. post-processing: retain only the largest connected component and fill any holes within the largest connected component.
 
 <p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/github/thalamus_workflow.png?raw=true">
+  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/thalamus_workflow.png?raw=true">
 </p>
 
 ## Results
