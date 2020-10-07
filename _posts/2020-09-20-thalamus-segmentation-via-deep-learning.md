@@ -20,10 +20,3 @@ We learn the location of the thalamus from 234 images that have been processed b
 
 ## Results
 Our proposed framework is able to produce a mean dice coefficient of 0.842, comparing to the state-of-art's 0.816 dice coefficient.
-
-<p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/result.png?raw=true">
-</p>
-
-
-
