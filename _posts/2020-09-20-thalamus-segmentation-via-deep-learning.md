@@ -4,10 +4,7 @@ date: 2020-09-20
 comment: false
 ---
 
-Segmenting the thalamus using a 3D convolutional neural network that takes the MPRAGE image and a set of features derived from diffusion tensor images (DTI). 
-<p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/thalamus_workflow.png?raw=true">
-</p>
+Thalamus segmentation is essential to quantify thalamic volume changes, which plays an important roll in studies that are related to neural system diseases, such as brain injury, amnesia, visual disorders, etc. In this project, thalamus is segmented using a 3D convolutional neural network that takes the MPRAGE image and a set of features derived from diffusion tensor images (DTI). 
 
 
 ## Workflow
