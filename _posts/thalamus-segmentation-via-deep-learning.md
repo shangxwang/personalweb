@@ -1,6 +1,6 @@
 ---
 title: Thalamus Segmentation via Deep Learning
-date: 2020-09-20
+
 
 ---
 
