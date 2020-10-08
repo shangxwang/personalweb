@@ -1,6 +1,6 @@
 ---
 title: Automated Cardiac Segmentation and Diagnosis via U-Net and Random Forest
-date: 2019-6-10
+date: 2019-06-10
 comment: false
 ---
 In this project, we automate cardiac MRI image segmentation and disease diagnosis through deep network and machine learning techniques on 3D cine-MR images. U-Net is implemented to segment the left ventricle (LV), right ventricle (RV), and myocardium (MYO). Features extracted from the U-Net segmentation result and the original MRI image are then fed into a random forest classifier to diagnose if the patient has myocardial infarction (MINF), dilated cardiomyopathy (DCM), hypertrophic cardiomyopathy (HCM), abnormal right ventricle (RV), or no cardiac disease. 
