@@ -2,9 +2,9 @@
 
 .homepage {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 
   @include breakpoint(medium) {
-    margin-top: 8rem;
+    margin-top: 4rem;
   }
 }
