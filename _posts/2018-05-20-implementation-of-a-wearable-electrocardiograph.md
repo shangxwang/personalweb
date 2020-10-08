@@ -8,19 +8,12 @@ This is an individual class project for building a wearable device that measures
 ## Workflow
 
 1. Circuit simulation (AD620-based circuit):
-<p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/AD620.png?raw=true">
-</p>
+<img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/AD620.png?raw=true"/>
 2. Breadbroad implementation. 
 3. PCB layout using EAGLE: 
+<img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/layout.png?raw=true"/>
 4. populated Voltera printed circuit boards:
-5. Acquired ECG signal: 
-<p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/layout.png?raw=true">
-</p>
-<p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/breadbroad.png?raw=true">
-</p>
-<p align="center">
-<img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/ECG.png?raw=true">
-</p>
+<img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/breadbroad.png?raw=true"/>
+5. Acquired ECG signal:   
+<img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/ECG.png?raw=true"/>
+
