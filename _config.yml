@@ -8,7 +8,7 @@ baseurl: /
 title: Book
 
 # site favicon, absolute path required
-favicon: /assets/img/favicon.ico
+# favicon: /assets/img/favicon.ico
 
 # home button image, absolute path requried
 avatar: /assets/img/profile.jpg
