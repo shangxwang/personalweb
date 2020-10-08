@@ -17,7 +17,7 @@ This is an individual class project for building a wearable device that measures
 </p>
 4. populated Voltera printed circuit boards:
 <p align="center">
-  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/thalamus_workflow.png?raw=true">
+  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/breadbroad.png?raw=true">
 </p>
 5. Acquired ECG signal: 
 <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/ECG.png?raw=true">
