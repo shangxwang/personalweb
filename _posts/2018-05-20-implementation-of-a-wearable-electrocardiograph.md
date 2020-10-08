@@ -10,7 +10,7 @@ This is an individual class project for building a wearable device that measures
 **1. Circuit simulation (AD620-based circuit):**
 <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/AD620.png?raw=true"/>
 
-**2. Breadbroad implementation.**
+**2. Breadbroad implementation.** (please see the picture below)
 
 **3. PCB layout using EAGLE: **
 <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/layout.png?raw=true"/>
