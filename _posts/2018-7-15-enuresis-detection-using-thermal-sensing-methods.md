@@ -7,8 +7,14 @@ This is my undergraduate research project: to develop a bed-based toolset to mon
 
 
 ## Workflow 
-
+1. 16 thermocouples are placed underneath the mattress and connected the the NI9213 module for temperature acquisition. 
+2. Bedwetting detection is automated through Labview and Ubidots. When bed wetting occurs, it will trigger the alarm in Labview and as sending a text message to smart phone through Ubidots.
 <p align="center">
   <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/scattervariance.png?raw=true">
 </p>
+3. Digital temperature sensor (TMP107) was later used to replace thermocouple to promte the system go wireless. This involves PCB layout design and wireless communication via bluetooth.
+<p align="center">
+  <img src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/TMP107.png?raw=true">
+</p>
+
 
