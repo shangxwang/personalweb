@@ -4,7 +4,8 @@ date: 2020-09-20
 comment: false
 ---
 
-Thalamus segmentation is essential to quantify thalamic volume changes, which plays an important roll in studies that are related to neural system diseases, such as brain injury, amnesia, visual disorders, etc. In this project, thalamus is segmented using a 3D convolutional neural network that takes the MPRAGE image and a set of features derived from diffusion tensor images (DTI).\                                                      
+Thalamus segmentation is essential to quantify thalamic volume changes, which plays an important roll in studies that are related to neural system diseases, such as brain injury, amnesia, visual disorders, etc. In this project, thalamus is segmented using a 3D convolutional neural network that takes the MPRAGE image and a set of features derived from diffusion tensor images (DTI).
+
 •Python  •Pytorch  •Bash  •DTI  •MRI  •Segmentation  •Deep Learning  •MIPAV  •FSL
 
 ## Workflow
