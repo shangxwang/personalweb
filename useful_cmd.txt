@@ -1,0 +1,93 @@
+convert_b_table -i /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.bval /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.bvec -o /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/ -p MTBI019_01 -t info -acqres 2.2 2.2 2.2
+
+/iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.bval
+/iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.bvec
+/iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.nii.gz
+
+dti_processing -d /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/ -p MTBI019 -s 01 -i /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/MTBI019_01_3DT2_reg.nii.gz -b /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/MTBI019_01_MPRAGEPre_reg_mask.nii.gz -dt /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.nii.gz -di /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/01/raw/DTI/MTBI019_01_DTI.info -ar -bp
+
+thalamus -d /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/ -p MTBI019 -s 02 -i /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_MPRAGEPre_reg.nii.gz -t2 /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_3DT2_reg.nii.gz -bm /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_MPRAGEPre_reg_mask.nii.gz --iacl_dir /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02 -seg /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_MPRAGEPre_reg_macruise.nii.gz -atlas /iacl/pg19/jeff/MS_Calabresi/PipelineTest/Atlas_2019
+
+
+
+thalamus -d /iacl/pg20/shangxian -p MTBI001 -s 01 -i /iacl/pg20/shangxian/MTBI001/01/raw/MTBI001_01_MPRAGEPre.nii.gz -t2 /iacl/pg20/shangxian/MTBI001/01/raw/MTBI001_01_acq3DT2_ss.nii.gz -bm /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_MPRAGEPre_reg_mask.nii.gz --iacl_dir /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02 -seg /iacl/pg19/jeff/TBI_biomechanics/ConvertedRaw/MTBI019/02/MTBI019_02_MPRAGEPre_reg_macruise.nii.gz -atlas /iacl/pg19/jeff/MS_Calabresi/PipelineTest/Atlas_2019
+
+
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg dti_processing -d /iacl/pg20/shangxian/ -p MTBI001 -s 01 -i /iacl/pg20/shangxian/MTBI001/01/raw/MTBI001_01_acq3DT2_reg.nii.gz -b /iacl/pg20/shangxian/MTBI001/01/raw/MTBI001_01_MPRAGEPre_reg_mask.nii.gz -dt /iacl/pg20/shangxian/MTBI001/01/raw/DTI/MTBI001_01_DTI.nii.gz -di /iacl/pg20/shangxian/MTBI001/01/raw/DTI/MTBI001_01_DTI.info
+
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg thalamus -d /iacl/pg20/shangxian/ -p MTBI -s 02 -i /iacl/pg20/shangxian/MTBI/02/MTBI019_02_MPRAGEPre_reg.nii.gz -t2 /iacl/pg20/shangxian/MTBI/02/MTBI019_02_3DT2_reg.nii.gz -bm /iacl/pg20/shangxian/MTBI/02/MTBI019_02_MPRAGEPre_reg_mask.nii.gz --iacl_dir /iacl/pg20/shangxian/MTBI/02 -seg /iacl/pg20/shangxian/MTBI/02/MTBI019_02_MPRAGEPre_reg_macruise.nii.gz -atlas /iacl/pg19/jeff/MS_Calabresi/PipelineTest/Atlas_2019
+
+# dcm2niix
+dcm2niix -f %f_%p_%t_%s_%q -o /iacl/pg20/Shangxian/Mechanics /iacl/pg20/BrainBiomechanics/MRI/S043_1_rot
+
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg 3dresample -orient RAI -prefix /iacl/pg20/shangxian/Thalamus/mmti_test/mmni_AP/mmni_dki_rai.nii -inset /iacl/pg20/shangxian/Thalamus/mmti_test/mmni_AP/mmni_dki.nii
+
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg 3dresample -orient RAI -prefix /iacl/pg20/BrainBiomechanics/DATA_PROCESSED/WUSTL_MRE_Data/WUSTL9881/01/raw/WUSTL9881_01_MPRAGEPre.nii.gz -inset /iacl/pg20/BrainBiomechanics/DATA_RAW/MRE/WUSTL/W9881_1/W9881_1_T1d.nii
+
+
+# create info file
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg convert_b_table -i /iacl/pg20/shangxian/Data_BM/drop/raw/DTI/S065_01_DTI.bval /iacl/pg20/shangxian/Data_BM/drop/raw/DTI/S065_01_DTI.bvec -o /iacl/pg20/shangxian/Data_BM/drop/raw/DTI -p S065_01_DTI -t info -acqres 2.2 2.2 2.2
+
+singularity exec -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg dti_processing -d /iacl/pg20/shangxian/Data_BM/rot/ -p S043 -s 01 -i /iacl/pg20/shangxian/Data_BM/rot/S043/01/S043_01_3DT2_reg.nii.gz -b /iacl/pg20/shangxian/Data_BM/rot/S043/01/S043_01_MPRAGEPre_reg_mask.nii.gz -dt /iacl/pg20/shangxian/Data_BM/rot/S043/01/raw/DTI/S043_01_DTI.nii.gz -di /iacl/pg20/shangxian/Data_BM/rot/S043/01/raw/DTI/S043_01_DTI.info
+
+singularity exec -c -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg run_patient -d /iacl/pg20/shangxian/Data_BM/S043_1_rot_processing/ -p S043 -s 01 -a /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz -m /iacl/pg19/jeff/TBI_biomechanics/monstr_withreg/ -g /iacl/pg15/bdewey/atlas/s3dl_lesions/ -f /iacl/pg19/bdewey/projects/marcc_atlas_backup/nmm30_demons_1mm
+
+PIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/bdewey/software/singularity_images/iacl_pipeline_v1.1.0_withatlas-b98305c.simg run_patient -d /iacl/pg20/BrainBiomechanics/DATA_PROCESSED/UDel_MRE_Data -p UDel9991 -s 01 -a /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz -m /iacl/pg19/jeff/TBI_biomechanics/monstr_withreg/ -g /iacl/pg15/bdewey/atlas/s3dl_lesions/ -f /iacl/pg19/bdewey/projects/marcc_atlas_backup/nmm30_demons_1mm
+
+PIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c_20191210.simg run_patient -d /iacl/pg20/BrainBiomechanics/DATA_PROCESSED/WUSTL_MRE_Data -p WUSTL9881  -s 01 -a /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz -m /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/monstr_withreg/ -g /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/atlas/s3dl_lesions/ -f /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/atlas/nmm30_demons_1mm
+
+
+PIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg N4BiasFieldCorrection -d 3 -i /home/muhan/pg17-muhan/AQ028/20051203/raw/AQ028_20051203_MPRAGEPre.nii.gz -s 4 -c [200x200x200x200,0.0005] -o /home/muhan/pg17-muhan/AQ028/20051203/AQ028_20051203_MPRAGEPre_N4_test.nii.gz
+
+antsRegistration -d 3 -o [/iacl/pg15/muhan/nph/pre_processing/AQ001_reg.nii.gz /iacl/pg15/muhan/nph/pre_processing/AQ001_reg_inv.nii.gz] -n Linear -r [/iacl/pg15/NPH/Blitz500/backup_Blitz/AQ001/20071024/AQ001_20071024_MPRAGEPre_n4.nii.gz,/iacl/pg15/NPH/Blitz500/NPH60MMS/AQ001/20071024/AQ001_20071024_MPRAGEPre_n4.nii.gz,1] -m CC[/iacl/pg15/NPH/Blitz500/backup_Blitz/AQ001/20071024/AQ001_20071024_MPRAGEPre_n4.nii.gz,/iacl/pg15/NPH/Blitz500/NPH60MMS/AQ001/20071024/AQ001_20071024_MPRAGEPre_n4.nii.gz,1,3,Regular,0.9] -t Translation[0.1] --float --convergence [100x100x70x50x20,1e-6,10] --shrink-factors 10x6x4x2x1 --smoothing-sigmas 5x3x2x1x0vox
+
+PIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg antsApplyTransforms -d 3 -i /bmap/pg15/muhan/nph/phase1/AQ001_MPRAGEPre_strip_ubMask.xml -r /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -n Linear -t /iacl/pg15/NPH/Blitz500/backup_Blitz/AQ001/longitudinal/BaselineTransform.mat -o /iacl/pg15/muhan/nph/pre_processing/AQ001/new_registration.nii.gz --float
+
+PIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg antsRegistration -d 3 -o /iacl/pg20/shangxian/test_reg.nii.gz -n Linear -r [/iacl/pg20/shangxian/Thalamus/pre_processing/mni_icbm152_t1_tal_nlin_sym_09a_resample_0828125mm_RAI.nii,/iacl/pg20/shangxian/MTBI/MTBI010/01/raw/MTBI010_01_MPRAGEPre.nii.gz,1] -m MI[/iacl/pg20/shangxian/Thalamus/pre_processing/mni_icbm152_t1_tal_nlin_sym_09a_resample_0828125mm_RAI.nii,/iacl/pg20/shangxian/MTBI/MTBI010/01/raw/MTBI010_01_MPRAGEPre.nii.gz,1,32,Regular,0.1] -t Rigid[0.1] --float --convergence [1000x500x250x125, 1e-06, 10] --shrink-factors 8x4x2x1 --smoothing-sigmas 3.0x2.0x1.0x0.0vox
+
+singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg baseline_t1 -t 2 -d /iacl/pg20/shangxian/MTBI/MTBI010/01/ -i /iacl/pg20/shangxian/MTBI/MTBI010/01/raw/MTBI010_01_MPRAGEPre.nii.gz -a /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz
+
+singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg antsApplyTransforms -d 3 -i /iacl/pg20/mallika/MICA_Atlas_Brain/50/raw/atlas_brain_50_T1-crop-resampled.nii -r /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -n BSpline[3] -t /iacl/pg20/mallika/MICA_Atlas_Brain/50/BaselineTransform.mat -o /iacl/pg20/mallika/MICA_Atlas_Brain/50/atlas_brain_50_T1-crop-resampled_reg.nii.gz --float
+
+
+singularityPIPELINE_TMP=CWD singularity exec -c -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg thalamus -d /iacl/pg20/shangxian/MTBI -p MTBI016 -s 01 -i /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg.nii.gz -t2 /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_3DT2_reg.nii.gz -bm /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg_mask.nii.gz -fa /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_fa.nii -md /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_md.nii -kn /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_knutsson_5D.nii.gz -knedge /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_knutsson_edgemap.nii.gz -atlas /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg_macruise.nii.gz -g /iacl/pg19/jeff/MS_Calabresi/PipelineTest/Atlas_2015 | tee thalamus016.txt
+
+singularityPIPELINE_TMP=CWD singularity exec -e -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg thalamus -d /iacl/pg20/shangxian/MTBI -p MTBI016 -s 01 -i /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg.nii.gz -t2 /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_3DT2_reg.nii.gz -bm /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg_mask.nii.gz -fa /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_fa.nii -md /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_md.nii -pev /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_evec0.nii -kn /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_knutsson_5D.nii.gz -knedge /iacl/pg20/shangxian/MTBI/MTBI016/01/DTI_ref/MTBI016_01_DWI_corrdwi_ref_knutsson_edgemap.nii.gz -atlas /iacl/pg20/shangxian/MTBI/MTBI016/01/MTBI016_01_MPRAGEPre_reg_macruise.nii.gz -g /iacl/pg19/jeff/MS_Calabresi/PipelineTest/Atlas_2015 | tee thalamus016.txt
+
+dti_rigid_reg /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/IITmean_tensor_256.nii.gz /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.nii.gz EDS 4 4 4 0.01
+
+dti_affine_reg /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/IITmean_tensor_256.nii.gz /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.nii.gz EDS 4 4 4 0.01 1
+
+dti_diffeomorphic_reg /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/IITmean_tensor_256.nii.gz /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_aff.nii.gz /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/IITmean_tensor_mask_256.nii.gz 1 5 0.002 (this command should be entered in one line)
+
+dfRightComposeAffine -aff /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.aff -df /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_aff_diffeo.df.nii.gz -out /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_combined.df.nii.gz
+
+deformationSymTensor3DVolume -in /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.nii.gz -trans /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_combined.df.nii.gz -target /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/IITmean_tensor_256.nii.gz -out /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_combined.nii.gz
+
+affine3Dtool -in /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.aff -invert -out /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_inv.aff
+
+dfToInverse -in /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_aff_diffeo.df.nii.gz 
+
+dfLeftComposeAffine -df /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_aff_diffeo.df_inv.nii.gz -aff /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor_inv.aff -out /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_combined.df_inv.nii.gz
+
+deformationScalarVolume -in /iacl/pg20/shangxian/Thalamus/IIT_bundles_256/OR_L_256.nii.gz -trans /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_combined.df_inv.nii.gz -target /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/mtbi016_tensor.nii.gz -interp 1 -out /iacl/pg20/shangxian/Thalamus/iit_tract/tensor/ORL_256_subj_space.nii.gz
+
+
+mri_label2vol --seg /iacl/pg20/shangxian/Thalamus/training/sca_training/testing/freesurfer/AT10000/mri/ThalamicNuclei.v12.T1.mgz --temp /iacl/pg20/shangxian/Thalamus/training/sca_training/testing/freesurfer/AT10000/mri/rawavg.mgz --o /iacl/pg20/shangxian/Thalamus/training/sca_training/testing/freesurfer/AT10000/mri/AT10000_thal.nii.gz --regheader iacl/pg20/shangxian/Thalamus/training/sca_training/testing/freesurfer/AT10000/mri/ThalamicNuclei.v12.T1.mgz
+
+wget -r --ftp-user="tbi" --ftp-password=Tb1pr0 ftp://134.192.125.142/array1/tbi/MR2TBI/* -P /iacl/pg20/new_mtbi_data/
+
+source /iacl/pg15/bdewey/software/software_paths dcm2niix -f %f_%p_%t_%s_%q -o /iacl/pg20/new_mtbi_data/MR2TBI/DICOM/MRCON2013/v1 /iacl/pg20/new_mtbi_data/MR2TBI/DICOM/MRCON2013/v1
+
+dcm2niix -f %f_%p_%t_%s_%q -o /iacl/pg20/new_mtbi_data/MR2TBI/DICOM/MRTBI4001/v1 /iacl/pg20/new_mtbi_data/MR2TBI/DICOM/MRTBI4001/v1
+
+
+
+singularityPIPELINE_TMP=CWD singularity exec -e -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg 3dresample -orient RAI -prefix /iacl/pg20/new_mtbi_data/MR2TBI/processed/MRCON2002/01/raw/MRCON2002_01_MPRAGEPre.nii.gz -inset /iacl/pg20/new_mtbi_data/MR2TBI/DICOM/MRCON2002/v1/v1_MPRAGE_SAG_TI1400_20190816134018_3_GR_IR.nii
+
+singularityPIPELINE_TMP=CWD singularity exec -e -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg run_patient -d /iacl/pg20/new_mtbi_data/MR2TBI/processed/ -p MRCON2001 -s 01 -a /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /iacl/pg15/bdewey/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz -m /iacl/pg19/jeff/TBI_biomechanics/monstr_withreg/ -g /iacl/pg15/bdewey/atlas/s3dl_lesions/ -f /iacl/pg19/bdewey/projects/marcc_atlas_backup/nmm30_demons_1mm | tee log_newtbi_2001_2.txt
+
+
+SINGULARITYENV_PIPELINE_TMP=CWD singularity exec -e -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c_20191210.simg run_patient -d /iacl/pg20/new_mtbi_data/MR2TBI/processed/ -p MRCON2001 -s 01 -a /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm.nii.gz -b /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_brainmask.nii.gz -r /opt/atlas/mni_0p8mm/mni_icbm_152_2009c_t1_0p8mm_registration_mask.nii.gz -m /opt/atlas/monstr_withreg/ -g /opt/atlas/s3dl_lesions/ -f /opt/atlas/vandy_nmm | tee log_newtbi_2001.txt
+
+singularityPIPELINE_TMP=CWD singularity exec -e -B /iacl /iacl/pg20/alshareef/BrainBiomech_processing/Image_Pipeline/iacl_pipeline_v1.1.0_withatlas-b98305c.simg convert_b_table -i /iacl/pg20/new_mtbi_data/MR2TBI/processed/MRCON2009/01/raw/DWI/MRCON2009_01_DWI.bval /iacl/pg20/new_mtbi_data/MR2TBI/processed/MRCON2009/01/raw/DWI/MRCON2009_01_DWI.bvec -o /iacl/pg20/new_mtbi_data/MR2TBI/processed/MRCON2009/01/raw/DWI/ -p MRCON2009_01_DWI -t info -acqres 2.0 2.0 2.0
