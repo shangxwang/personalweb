@@ -105,7 +105,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <img id="myImg3" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_1.jpg?raw=true" alt="moon" style="width:300px;height:300px">
 <img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_2.JPG?raw=true" alt="moon" style="width:300px;height:300px">
 <img id="myImg5" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/shenando.JPG?raw=true" alt="mountain" style="width:605px;height:200px">
-<img id="myImg6" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoback.JPG?raw=true" alt="肉包" style="width:300px;height:250px">
+<img id="myImg6" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoback.JPG?raw=true" alt="肉包" style="width:350px;height:250px">
+<img id="myImg7" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoface.JPG?raw=true" alt="肉包" style="width:250px;height:250px">
+  
   
 
 
@@ -172,6 +174,16 @@ img.onclick = function(){
 
 var modal = document.getElementById("myModal");
 var img = document.getElementById("myImg6");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg7");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
