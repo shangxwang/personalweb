@@ -97,19 +97,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
-<img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/合照.JPG?raw=true" alt="with Roubao!" style="width:270px;height:220px">  
-<img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/flyingpuppy.JPG?raw=true" alt="flying puppy" style="width:330px;height:220px">
+<img id="myImg1" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/合照.JPG?raw=true" alt="with Roubao!" style="width:270px;height:220px">  
+<img id="myImg2" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/flyingpuppy.JPG?raw=true" alt="flying puppy" style="width:330px;height:220px">
 <img id="myImg3" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/greenwater.JPG?raw=true" alt="lake" style="width:300px;height:200px">
-<img id="myImg2" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/spring.jpg?raw=true" alt="spring" style="width:300px;height:200px">
-<img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/ORG_DSC02121.JPG?raw=true" alt="snow" style="width:300px;height:200px">
-<img id="myImg" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/hopkinssnow.JPG?raw=true" alt="snow at Hopkins" style="width:300px;height:200px">
-<img id="myImg" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/stars.JPG?raw=true" alt="stars" style="width:300px;height:250px">
-<img id="myImg" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/xingkong1.JPG?raw=true" alt="starry night" style="width:300px;height:250px">
-<img id="myImg3" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_1.jpg?raw=true" alt="moon" style="width:300px;height:300px">
-<img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_2.JPG?raw=true" alt="moon" style="width:300px;height:300px">
-<img id="myImg5" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/sunset.jpg?raw=true" alt="sunset" style="width:605px;height:200px">
-<img id="myImg6" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoback.JPG?raw=true" alt="肉包" style="width:340px;height:220px">
-<img id="myImg7" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoface.JPG?raw=true" alt="肉包" style="width:260px;height:220px">
+<img id="myImg4" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/spring.jpg?raw=true" alt="spring" style="width:300px;height:200px">
+<img id="myImg5" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/ORG_DSC02121.JPG?raw=true" alt="snow" style="width:300px;height:220px">
+<img id="myImg6" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/hopkinssnow.JPG?raw=true" alt="snow at Hopkins" style="width:300px;height:220px">
+<img id="myImg7" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/stars.JPG?raw=true" alt="stars" style="width:300px;height:250px">
+<img id="myImg8" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/xingkong1.JPG?raw=true" alt="starry night" style="width:300px;height:250px">
+<img id="myImg9" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_1.jpg?raw=true" alt="moon" style="width:300px;height:300px">
+<img id="myImg10" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/moon_2.JPG?raw=true" alt="moon" style="width:300px;height:300px">
+<img id="myImg11" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/sunset.jpg?raw=true" alt="sunset" style="width:605px;height:200px">
+<img id="myImg12" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoback.JPG?raw=true" alt="肉包" style="width:340px;height:220px">
+<img id="myImg13" src="https://github.com/shangxwang/shangxwang.github.io/blob/master/github/roubaoface.JPG?raw=true" alt="肉包" style="width:260px;height:220px">
 
 
 
@@ -125,7 +125,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
+var img = document.getElementById("myImg1");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
@@ -186,6 +186,66 @@ img.onclick = function(){
   
 var modal = document.getElementById("myModal");
 var img = document.getElementById("myImg7");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg8");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg9");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg10");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg11");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg12");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg13");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
